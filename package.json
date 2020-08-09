@@ -32,7 +32,6 @@
     "discord.js": "^11.6.4",
     "dotenv": "^8.2.0",
     "minimist": "^1.2.5",
-    "nodemailer": "^6.4.11",
     "winston": "^3.3.3",
     "winston-daily-rotate-file": "^3.10.0",
     "winston-timestamp-colorize": "^1.1.0",
@@ -54,7 +53,6 @@
     "eslint-import-resolver-typescript": "^2.2.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jest": "^22.21.0",
-    "husky": "^2.7.0",
     "jest": "^24.9.0",
     "lint-staged": "^9.5.0",
     "rimraf": "^2.7.1",
@@ -62,12 +60,6 @@
     "ts-node": "^8.10.2",
     "ts-node-dev": "^1.0.0-pre.56",
     "typescript": "^3.9.7"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
-    }
   },
   "lint-staged": {
     "*.(ts|js)": [

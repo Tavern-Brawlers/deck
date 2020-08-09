@@ -9,7 +9,6 @@ import BotConsoleReader from './BotConsoleReader';
 import BotCommandMap from './BotCommandMap';
 import { ParsedMessage, parse } from './BotCommandParser';
 
-import logger from '../utils/logger';
 
 import draw from '../api/draw';
 
