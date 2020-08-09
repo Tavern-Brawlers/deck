@@ -1,17 +1,17 @@
 {
-  "name": "discord-yamusic",
+  "name": "discord-deck",
   "version": "0.0.0",
   "private": true,
-  "description": "Discord Bot for Yandex.Music",
+  "description": "Deck Bot",
   "keywords": [],
   "repository": {
     "type": "git",
-    "url": "https://github.com/dvasiliev97/discord-yamusic.git"
+    "url": "https://github.com/Tavern-Brawlers/deck.git"
   },
   "author": "",
-  "homepage": "https://github.com/dvasiliev97/discord-yamusic",
+  "homepage": "https://github.com/Tavern-Brawlers/deck",
   "bugs": {
-    "url": "https://github.com/dvasiliev97/discord-yamusic/issues"
+    "url": "https://github.com/Tavern-Brawlers/deck/issues"
   },
   "license": "ISC",
   "main": "src/app.ts",
@@ -27,41 +27,41 @@
     "test:watch": "jest --coverage --verbose --watchAll"
   },
   "dependencies": {
-    "axios": "^0.19.0",
-    "chalk": "^4.0.0",
-    "discord.js": "^11.5.1",
-    "dotenv": "^8.0.0",
+    "axios": "^0.19.2",
+    "chalk": "^4.1.0",
+    "discord.js": "^11.6.4",
+    "dotenv": "^8.2.0",
     "minimist": "^1.2.5",
-    "node-opus": "^0.3.2",
-    "nodemailer": "^6.3.0",
-    "winston": "^3.2.1",
+    "nodemailer": "^6.4.11",
+    "winston": "^3.3.3",
     "winston-daily-rotate-file": "^3.10.0",
-    "winston-timestamp-colorize": "^1.0.4",
-    "winston-transport": "^4.3.0"
+    "winston-timestamp-colorize": "^1.1.0",
+    "winston-transport": "^4.4.0"
   },
   "devDependencies": {
-    "@commitlint/cli": "^8.0.0",
-    "@commitlint/config-conventional": "^8.0.0",
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
     "@types/dotenv": "^6.1.1",
-    "@types/jest": "^24.0.15",
+    "@types/jest": "^24.9.1",
     "@types/minimist": "^1.2.0",
-    "@types/node": "^12.0.10",
-    "@types/nodemailer": "^6.2.1",
-    "@typescript-eslint/eslint-plugin": "^1.11.0",
-    "@typescript-eslint/parser": "^1.11.0",
-    "cross-env": "^5.2.0",
+    "@types/node": "^12.12.54",
+    "@types/nodemailer": "^6.4.0",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "cross-env": "^5.2.1",
     "eslint": "^5.3.0",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-plugin-import": "^2.14.0",
-    "eslint-plugin-jest": "^22.7.1",
+    "eslint-import-resolver-typescript": "^2.2.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jest": "^22.21.0",
     "husky": "^2.7.0",
-    "jest": "^24.8.0",
-    "lint-staged": "^9.2.0",
-    "rimraf": "^2.6.3",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.3.0",
-    "ts-node-dev": "^1.0.0-pre.40",
-    "typescript": "^3.5.2"
+    "jest": "^24.9.0",
+    "lint-staged": "^9.5.0",
+    "rimraf": "^2.7.1",
+    "ts-jest": "^24.3.0",
+    "ts-node": "^8.10.2",
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7"
   },
   "husky": {
     "hooks": {

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 export interface BotConfig {
   auto: {
     deafen: boolean;
@@ -37,12 +38,12 @@ const DefaultBotConfig: BotConfig = {
   },
 
   discord: {
-    token: process.env.BOT_TOKEN,
+    token: process.env.BOT_TOKEN!,
     log: true,
   },
 
   command: {
-    symbol: process.env.PREFIX,
+    symbol: process.env.PREFIX!,
   },
 
   queue: {
