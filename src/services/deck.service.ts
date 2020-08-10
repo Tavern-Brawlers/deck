@@ -27,12 +27,12 @@ const commonCards: Card[] = [
   {
     name: 'Vitality',
     rarity: 'common',
-    description: 'Восстанови 2 HP.',
+    description: 'Примени, чтобы восстановить 2 HP.',
   },
   {
     name: 'Endurance',
     rarity: 'common',
-    description: 'Восстанови 2 FP.',
+    description: 'Примени, чтобы восстановить 2 FP.',
   },
   {
     name: 'Collaboration',
@@ -93,7 +93,7 @@ const rareCards: Card[] = [
   {
     name: 'Lesser Soul Vessel',
     rarity: 'rare',
-    description: 'Перераспредели 15 поинтов.',
+    description: 'Примени, чтобы перераспределить 15 поинтов.',
   },
   {
     name: 'Sun',
@@ -117,12 +117,12 @@ const epicCards: Card[] = [
   {
     name: 'Hospital',
     rarity: 'epic',
-    description: 'Восстанови 3 HP всей группе.',
+    description: 'Примени, чтобы восстановить 3 HP всей группе.',
   },
   {
     name: 'Soul Vessel',
     rarity: 'epic',
-    description: 'Перераспредели 30 поинтов.',
+    description: 'Примени,чтобы перераспределить 30 поинтов.',
   },
   {
     name: 'Oni',
@@ -146,7 +146,7 @@ const legendaryCards: Card[] = [
     name: 'Prophecy',
     rarity: 'legendary',
     description:
-      'Забытый бог выбирает вас своим паладином в этом бою. Получите эффект Heroic Feats 3. Вы можете начать выкупать линзу (Holy Warrior, Unholy Warrior, Cleric, Evil Cleric) или дополнительный пантеон, если вы уже имеете один из перечисленных классов.',
+      'Примени, чтобы забытый бог выбрал вас своим паладином в этом бою. Получите эффект Heroic Feats 3. Вы можете начать выкупать линзу (Holy Warrior, Unholy Warrior, Cleric, Evil Cleric) или дополнительный пантеон, если вы уже имеете один из перечисленных классов.',
   },
   {
     name: 'Mortal Resolve',

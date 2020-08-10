@@ -47,33 +47,24 @@ class YBot implements Bot {
         const handlers = this.commands.get(parsed.command);
 
         if (handlers) {
-          logger.debug(`Bot Command: ${msg.content}`);
-
           handlers.forEach((handle): void => {
             handle(parsed, msg, this);
           });
         }
       })
       .on('ready', (): void => {
-        if (this.online) logger.debug('Reconnected!');
-
-        else logger.debug('Online!');
-
         this.online = true;
 
         this.status.setActivity('online');
         this.status.setBanner('Music');
       })
       .on('reconnecting', (): void => {
-        logger.debug('Reconnecting...');
       })
       .on('disconnect', (): void => {
         this.online = false;
 
-        logger.debug('Disconnected!');
       })
       .on('error', (error: Error): void => {
-        logger.error(error);
       })
       .on('guildMemberUpdate', (): void => {})
       .on('guildMemberSpeaking', (): void => {});
