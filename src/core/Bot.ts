@@ -11,6 +11,7 @@ import { ParsedMessage, parse } from './BotCommandParser';
 
 
 import draw from '../api/draw';
+import inventory from '../api/inventory';
 
 class YBot implements Bot {
   public client: Client;
@@ -36,7 +37,8 @@ class YBot implements Bot {
     this.config = config;
 
     this.commands = new BotCommandMap()
-      .on('draw', draw);
+      .on('draw', draw)
+      .on('inventory', inventory);
 
     this.client = new Client()
       .on('message', (msg: Message): void => {

@@ -1,9 +1,8 @@
 import readline from 'readline';
 import minimist from 'minimist';
+import chalk from 'chalk';
 
 import BotCommandMap from './BotCommandMap';
-
-import logger from '../utils/logger';
 
 class BotConsoleReader {
   public commands: BotCommandMap;
@@ -32,7 +31,7 @@ class BotConsoleReader {
     });
 
     rl.on('close', (): void => {
-      logger.debug('Console Reader Disconnected');
+      chalk.yellow('Console Reader Disconnected');
     });
   }
 }

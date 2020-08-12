@@ -1,7 +1,7 @@
 import DefaultBotConfig from './core/BotConfig';
-
-import logger from './utils/logger';
+import { Pool } from 'pg';
 import YBot from './core/Bot';
+import chalk from 'chalk';
 
 
 const bot = new YBot(DefaultBotConfig);
@@ -9,8 +9,8 @@ const bot = new YBot(DefaultBotConfig);
 bot
   .connect()
   .then((): void => {
-    logger.debug('Bot Ready');
+    chalk.black('Bot Ready')
   })
   .catch((err: Error): void => {
-    logger.error(err);
+    chalk.red(err)
   });

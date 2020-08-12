@@ -21,6 +21,14 @@ export const rarityMapHex = new Map<string, string>([
   ['legendary', '#fd9644'],
 ]);
 
+export const rarityMapNumberHex = new Map<number, string>([
+  [0, '#dcdde1'],
+  [1, '#44bd32'],
+  [2, '#0097e6'],
+  [3, '#a55eea'],
+  [4, '#fd9644'],
+]);
+
 export const rarityArray = [16777215, 2031360, 28893, 10696174, 16744448];
 
 const commonCards: Card[] = [
@@ -174,5 +182,6 @@ const pickRandomCard = (): Card => {
 
   return commonCards[Math.floor(Math.random() * commonCards.length)];
 };
+
 
 export default pickRandomCard;
