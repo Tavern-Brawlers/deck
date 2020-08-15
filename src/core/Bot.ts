@@ -60,7 +60,7 @@ class YBot implements Bot {
         this.online = true;
 
         this.status.setActivity('online');
-        this.status.setBanner('Music');
+        this.status.setBanner('лутбоксы');
       })
       .on('reconnecting', (): void => {
       })
