@@ -35,7 +35,7 @@ const draw = async (cmd: ParsedMessage, msg: Message, bot: Bot): Promise<void> =
                   .then(() => {
                     const embed = new RichEmbed()
                     .setColor(rarityMapNumberHex.get(rarity)!)
-                    .setDescription(`<@${msg.author.id}> вытянул карту ${randomCard.title}`)
+                    .setDescription(`<@${msg.author.id}> вытянул карту **${randomCard.title}**`)
                     .addField('Описание карты',randomCard.description,false);
                     msg.channel.sendEmbed(embed);
                   })

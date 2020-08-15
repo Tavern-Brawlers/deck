@@ -12,6 +12,7 @@ import { ParsedMessage, parse } from './BotCommandParser';
 
 import draw from '../api/draw';
 import inventory from '../api/inventory';
+import use from '../api/use';
 
 class YBot implements Bot {
   public client: Client;
@@ -38,7 +39,8 @@ class YBot implements Bot {
 
     this.commands = new BotCommandMap()
       .on('draw', draw)
-      .on('inventory', inventory);
+      .on('inventory', inventory)
+      .on('use', use);
 
     this.client = new Client()
       .on('message', (msg: Message): void => {
