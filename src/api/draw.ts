@@ -14,20 +14,29 @@ const draw = async (cmd: ParsedMessage, msg: Message, bot: Bot): Promise<void> =
 
   const pool = new Pool();
 
-  const rarity = Math.floor(Math.random() * 5);
+  let rarity = 0;
+  const probs = [0.35,0.25,0.20,0.15,0.05]
+  const rand = Math.random();
+  let sum = 0;
+  for (let i = 0; i < probs.length; i++){
+    sum += probs[i];
+    if ( rand < sum ) {
+      rarity = i;
+      break;
+    }
+  }
 
   pool.query(`select * from card where rarity='${rarity}'`)
       .then((res: {rows: {id: number, user: string, title: string, description: string}[]}) => {
               const stash = res.rows;
               const randomCard = stash[Math.floor(Math.random() * stash.length)];
-              msg.channel.send(`Вытянул карту ${randomCard.title}, пытаюсь пихнуть её в бд`);
 
               pool.query(`insert into stash (card, player) values ('${randomCard.id}', '${msg.author.id}');`)
                   .then(() => {
                     const embed = new RichEmbed()
                     .setColor(rarityMapNumberHex.get(rarity)!)
                     .setDescription(`<@${msg.author.id}> вытянул карту ${randomCard.title}`)
-                    .setFooter(randomCard.description);
+                    .addField('Описание карты',randomCard.description,false);
                     msg.channel.sendEmbed(embed);
                   })
       });
