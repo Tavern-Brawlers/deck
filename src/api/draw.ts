@@ -27,9 +27,20 @@ const draw = async (cmd: ParsedMessage, msg: Message, bot: Bot): Promise<void> =
   }
 
   pool.query(`select * from card where rarity='${rarity}'`)
-      .then((res: {rows: {id: number, user: string, title: string, description: string}[]}) => {
+      .then((res: {rows: {id: number, user: string, weight: number, title: string, description: string}[]}) => {
               const stash = res.rows;
-              const randomCard = stash[Math.floor(Math.random() * stash.length)];
+              const n = stash.map(card => card.weight).reduce((a, b) => a + b, 0);
+              stash.forEach(card => card.weight = card.weight/n);
+
+              let sum = 0;
+              let randomCard: {id: number, user: string, weight: number, title: string, description: string} = stash[0];
+              for (let i = 0; i < stash.length; i++){
+                sum += stash[i].weight;
+                if ( rand < sum ) {
+                  randomCard = stash[i];
+                  break;
+                }
+              }
 
               pool.query(`insert into stash (card, player) values ('${randomCard.id}', '${msg.author.id}');`)
                   .then(() => {
