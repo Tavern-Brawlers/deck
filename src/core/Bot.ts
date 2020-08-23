@@ -14,6 +14,7 @@ import draw from '../api/draw';
 import inventory from '../api/inventory';
 import use from '../api/use';
 import info from '../api/info';
+import give from '../api/give';
 
 class YBot implements Bot {
   public client: Client;
@@ -42,7 +43,8 @@ class YBot implements Bot {
       .on('draw', draw)
       .on('inventory', inventory)
       .on('use', use)
-      .on('info', info);
+      .on('info', info)
+      .on('give', give);
 
     this.client = new Client()
       .on('message', (msg: Message): void => {

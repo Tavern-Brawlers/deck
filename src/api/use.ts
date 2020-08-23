@@ -14,10 +14,10 @@ const use = async (cmd: ParsedMessage, msg: Message, bot: Bot): Promise<void> =>
 
   const pool = new Pool();
 
-  if(args[0]){
+  if(args.join(' ')){
         pool.query(`select stash.id as stashId, card,player,title,description,active
         from stash inner join card on stash.card=card.id
-        where player='${msg.author.id}' and title='${args[0]}' and active=true`, (err: any, res: any) => {
+        where player='${msg.author.id}' and title='${args.join(' ')}' and active=true`, (err: any, res: any) => {
           if(!err){
           const cards: {stashid: number, card: number, player: number, title: string, description: string}[] = res.rows;
 
@@ -26,14 +26,14 @@ const use = async (cmd: ParsedMessage, msg: Message, bot: Bot): Promise<void> =>
                   .then(() => {
                     const embed = new RichEmbed()
                     .setColor('#F50057')
-                    .setDescription(`<@${msg.author.id}> использует карту **${cards[0].title}**`)
+                    .setDescription(`<@${msg.author.id}> использует карту **${args.join(' ')}**`)
                     .addField('Описание карты',cards[0].description,false);
                     msg.channel.sendEmbed(embed);
                   })
           } else {
             const embed = new RichEmbed()
             .setColor('#E64A19')
-            .setDescription(`У <@${msg.author.id}> нет карты **${args[0]}**`)
+            .setDescription(`У <@${msg.author.id}> нет карты **${args.join(' ')}**`)
   
             msg.channel.sendEmbed(embed);
           }
