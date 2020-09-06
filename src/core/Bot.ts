@@ -9,7 +9,6 @@ import BotConsoleReader from './BotConsoleReader';
 import BotCommandMap from './BotCommandMap';
 import { ParsedMessage, parse } from './BotCommandParser';
 
-
 import draw from '../api/draw';
 import inventory from '../api/inventory';
 import use from '../api/use';
@@ -48,16 +47,18 @@ class YBot implements Bot {
 
     this.client = new Client()
       .on('message', (msg: Message): void => {
-        const parsed: ParsedMessage<Message> = parse(msg, this.config.command.symbol);
+        if (msg.isMemberMentioned(this.client.user)) {
+          const parsed: ParsedMessage<Message> = parse(msg, undefined);
 
-        if (!parsed.success) return;
+          if (!parsed.success) return;
 
-        const handlers = this.commands.get(parsed.command);
+          const handlers = this.commands.get(parsed.command);
 
-        if (handlers) {
-          handlers.forEach((handle): void => {
-            handle(parsed, msg, this);
-          });
+          if (handlers) {
+            handlers.forEach((handle): void => {
+              handle(parsed, msg, this);
+            });
+          }
         }
       })
       .on('ready', (): void => {
@@ -66,14 +67,11 @@ class YBot implements Bot {
         this.status.setActivity('online');
         this.status.setBanner('лутбоксы');
       })
-      .on('reconnecting', (): void => {
-      })
+      .on('reconnecting', (): void => {})
       .on('disconnect', (): void => {
         this.online = false;
-
       })
-      .on('error', (error: Error): void => {
-      })
+      .on('error', (error: Error): void => {})
       .on('guildMemberUpdate', (): void => {})
       .on('guildMemberSpeaking', (): void => {});
 
