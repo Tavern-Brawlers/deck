@@ -24,9 +24,7 @@ const info = async (cmd: ParsedMessage, msg: Message, bot: Bot): Promise<void> =
             .setColor(`${rarityMapNumberHex.get(cards[0].rarity)}`)
             .setThumbnail('https://cdn3.iconfinder.com/data/icons/fantasy-and-role-play-game-adventure-quest/512/Spell_Book-512.png')
             .setDescription(`**${cards[0].title}**`)
-            .addField('Описание карты',cards[0].description,false)
-            .addField('Правило',`${cards[0].rule}`,false)
-            .addField('Пример использования',cards[0].example,false);
+            .addField('Описание',cards[0].description,false)
             msg.channel.sendEmbed(embed);
           } else {
             const embed = new RichEmbed()
